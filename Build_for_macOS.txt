@@ -1,0 +1,15 @@
+npm run build:macos
+```
+
+**Expected output:**
+```
+> pkg . --targets node18-macos-x64 --output dist/macos/myapp --compress GZip
+
+> pkg@5.8.1
+> Targets: node18-macos-x64
+
+
+Verify:
+
+ls -lh dist/macos/
+file dist/macos/myapp

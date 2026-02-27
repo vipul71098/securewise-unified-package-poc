@@ -1,0 +1,22 @@
+npm run build:linux
+```
+
+**Expected output:**
+```
+> pkg . --targets node18-linux-x64 --output dist/linux/myapp --compress GZip
+
+> pkg@5.8.1
+> Targets: node18-linux-x64
+
+Make executable:
+chmod +x dist/linux/myapp
+
+Verify:
+ls -lh dist/linux/
+file dist/linux/myapp
+```
+
+**Output:**
+```
+-rwxr-xr-x 1 user user 43M Feb 26 10:32 myapp
+dist/linux/myapp: ELF 64-bit LSB executable, x86-64

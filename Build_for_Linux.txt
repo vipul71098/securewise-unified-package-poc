@@ -14,9 +14,17 @@ chmod +x dist/linux/myapp
 Verify:
 ls -lh dist/linux/
 file dist/linux/myapp
+
+In another terminal or browser open:
+# Test endpoints
+curl http://localhost:3000/health
+curl http://localhost:3000/api/info
 ```
 
 **Output:**
 ```
 -rwxr-xr-x 1 user user 43M Feb 26 10:32 myapp
+
+
+
 dist/linux/myapp: ELF 64-bit LSB executable, x86-64

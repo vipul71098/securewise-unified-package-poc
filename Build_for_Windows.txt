@@ -1,0 +1,31 @@
+npm run build:windows
+```
+
+**What happens:**
+1. pkg reads your package.json configuration
+2. Downloads Node.js 18 Windows runtime (if not cached)
+3. Bundles your application code
+4. Bundles dependencies (express, etc.)
+5. Includes assets (public/, config/)
+6. Compresses with GZip
+7. Outputs to `dist/windows/myapp.exe`
+
+**Expected output:**
+```
+> pkg . --targets node18-win-x64 --output dist/windows/myapp.exe --compress GZip
+
+> pkg@5.8.1
+> Targets: node18-win-x64
+> Warning   Failed to make bytecode node18-x64 for file /snapshot/project/src/app.js
+> Warning   Failed to make bytecode node18-x64 for file /snapshot/project/server.js
+
+
+Verify the build:
+
+ls -lh dist/windows/
+```
+
+**You should see:**
+```
+total 45M
+-rwxr-xr-x 1 user user 45M Feb 26 10:30 myapp.exe

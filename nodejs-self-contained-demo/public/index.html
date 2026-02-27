@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Asset Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📦 Bundled Static Asset</h1>
+        <p>This is a static HTML file bundled with the executable!</p>
+        <div>
+            <span class="badge">pkg</span>
+            <span class="badge">Self-Contained</span>
+            <span class="badge">No Dependencies</span>
+        </div>
+        <h2>Features</h2>
+        <ul>
+            <li>✅ Runs without Node.js installation</li>
+            <li>✅ Single executable file</li>
+            <li>✅ Includes all dependencies</li>
+            <li>✅ Cross-platform compatible</li>
+        </ul>
+        <p><a href="/">← Back to API</a></p>
+    </div>
+</body>
+</html>

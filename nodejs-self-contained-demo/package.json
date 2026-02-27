@@ -1,0 +1,52 @@
+{
+  "name": "nodejs-self-contained-demo",
+  "version": "1.0.0",
+  "description": "Self-contained Node.js application demo using pkg",
+  "main": "server.js",
+  "bin": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "test": "node server.js & sleep 5 && curl http://localhost:3000/health && pkill -f server.js",
+    "build": "npm run build:all",
+    "build:all": "npm run clean && npm run build:windows && npm run build:linux && npm run build:macos",
+    "build:windows": "pkg . --targets node18-win-x64 --output dist/windows/myapp.exe --compress GZip",
+    "build:linux": "pkg . --targets node18-linux-x64 --output dist/linux/myapp --compress GZip",
+    "build:macos": "pkg . --targets node18-macos-x64 --output dist/macos/myapp --compress GZip",
+    "build:all-platforms": "pkg . --targets node18-win-x64,node18-linux-x64,node18-macos-x64 --out-path dist --compress GZip",
+    "clean": "rm -rf dist/windows/* dist/linux/* dist/macos/*",
+    "package": "npm run build && npm run package:zip",
+    "package:zip": "cd dist/windows && zip -r ../myapp-windows-x64.zip myapp.exe && cd ../linux && tar -czf ../myapp-linux-x64.tar.gz myapp && cd ../macos && zip -r ../myapp-macos-x64.zip myapp"
+  },
+  "keywords": [
+    "pkg",
+    "self-contained",
+    "standalone",
+    "executable"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [
+      "public/**/*",
+      "config/**/*",
+      "node_modules/express/**/*"
+    ],
+    "scripts": [
+      "src/**/*.js"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-win-x64",
+      "node18-macos-x64"
+    ],
+    "outputPath": "dist"
+  }
+}

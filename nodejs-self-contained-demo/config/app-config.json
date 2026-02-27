@@ -1,0 +1,23 @@
+{
+  "appName": "Self-Contained Node.js Demo",
+  "version": "1.0.0",
+  "environment": "production",
+  "features": {
+    "logging": true,
+    "analytics": false,
+    "metrics": true
+  },
+  "server": {
+    "port": 3000,
+    "host": "0.0.0.0",
+    "timeout": 30000
+  },
+  "security": {
+    "corsEnabled": false,
+    "rateLimiting": false
+  },
+  "database": {
+    "type": "none",
+    "connectionString": ""
+  }
+}
